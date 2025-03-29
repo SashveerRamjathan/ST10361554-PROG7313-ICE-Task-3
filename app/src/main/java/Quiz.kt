@@ -30,7 +30,7 @@ class Quiz {
             )
         ),
         Category(
-            "Science & Nature", listOf(
+            "Science and Nature", listOf(
                 Question("What gas do plants absorb for photosynthesis?", listOf("Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"), 2),
                 Question("What is the powerhouse of the cell?", listOf("Nucleus", "Ribosome", "Mitochondria", "Cytoplasm"), 2),
                 Question("What is the chemical formula for water?", listOf("H2O", "CO2", "O2", "CH4"), 0),
@@ -44,7 +44,7 @@ class Quiz {
             )
         ),
         Category(
-            "Movies & Pop Culture", listOf(
+            "Movies and Pop Culture", listOf(
                 Question("Which movie features the song 'Let It Go'?", listOf("Moana", "Frozen", "Tangled", "The Lion King"), 1),
                 Question("Who played Iron Man in the Marvel movies?", listOf("Chris Hemsworth", "Robert Downey Jr.", "Chris Evans", "Mark Ruffalo"), 1),
                 Question("What is the highest-grossing movie of all time?", listOf("Avatar", "Titanic", "Avengers: Endgame", "Star Wars"), 0),

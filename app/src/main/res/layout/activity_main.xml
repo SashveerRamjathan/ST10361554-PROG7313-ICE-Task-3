@@ -41,7 +41,88 @@
         android:layout_height="wrap_content"
         android:text="Question Categories"
         android:textSize="17sp"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select a category to start the quiz:"
+        android:textAlignment="center"
+        android:layout_margin="10dp"/>
+
+    <!-- General Knowledge btn & score -->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="General Knowledge"
+        android:layout_margin="20dp"
+        android:id="@+id/btn_gk"
+        android:backgroundTint="@color/battleship_grey"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Score: "
+        android:layout_gravity="center"
+        android:id="@+id/tv_score_gk"
+        android:textAlignment="center"/>
+
+    <!-- Computer Science btn & score -->
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Computer Science"
+        android:layout_margin="20dp"
+        android:id="@+id/btn_cs"
+        android:backgroundTint="@color/battleship_grey"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Score: "
+        android:layout_gravity="center"
+        android:id="@+id/tv_score_cs"
+        android:textAlignment="center"/>
+
+    <!-- Science and Nature btn & score -->
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Science and Nature"
+        android:layout_margin="20dp"
+        android:id="@+id/btn_sn"
+        android:backgroundTint="@color/battleship_grey"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Score: "
+        android:layout_gravity="center"
+        android:id="@+id/tv_score_sn"
+        android:textAlignment="center"/>
+
+    <!-- Movies and Pop Culture btn & score -->
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Movies and Pop Culture"
+        android:layout_margin="20dp"
+        android:id="@+id/btn_mpc"
+        android:backgroundTint="@color/battleship_grey"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Score: "
+        android:layout_gravity="center"
+        android:id="@+id/tv_score_mpc"
+        android:textAlignment="center"/>
+
+
 
 
 

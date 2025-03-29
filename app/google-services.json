@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "319767415300",
+    "project_id": "st10361554-prog7313-ice-3",
+    "storage_bucket": "st10361554-prog7313-ice-3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:319767415300:android:6886760981152b206f8351",
+        "android_client_info": {
+          "package_name": "com.st10361554.quizapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDVIkgDSoBv6r6AY0DnwKW7u2eIVuPrGA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

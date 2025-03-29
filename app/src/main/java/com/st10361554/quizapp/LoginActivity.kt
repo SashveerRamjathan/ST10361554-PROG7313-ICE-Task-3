@@ -65,6 +65,9 @@ class LoginActivity : AppCompatActivity() {
         // register button click
         btnRegister.setOnClickListener {
 
+            // navigate to register activity
+            startActivity(Intent(this, RegisterActivity::class.java))
+            finish()
         }
 
 
@@ -75,7 +78,7 @@ class LoginActivity : AppCompatActivity() {
     {
         auth.signInWithEmailAndPassword(email, password)
 
-            .addOnCompleteListener { task ->
+            .addOnCompleteListener(this) { task ->
 
                 if (task.isSuccessful)
                 {

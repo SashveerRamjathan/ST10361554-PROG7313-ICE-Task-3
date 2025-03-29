@@ -21,9 +21,17 @@ class MainActivity : AppCompatActivity() {
 
     // Buttons
     private lateinit var btnSignOut: Button
+    private lateinit var btnGK: Button
+    private lateinit var btnCS: Button
+    private lateinit var btnSN: Button
+    private lateinit var btnMPC: Button
 
     // Text Views
     private lateinit var tvGreeting: TextView
+    private lateinit var tvScoreGK: TextView
+    private lateinit var tvScoreCS: TextView
+    private lateinit var tvScoreSN: TextView
+    private lateinit var tvScoreMPC: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,9 +42,18 @@ class MainActivity : AppCompatActivity() {
 
         // initialise buttons
         btnSignOut = binding.btnSignOut
+        btnGK = binding.btnGk
+        btnCS = binding.btnCs
+        btnSN = binding.btnSn
+        btnMPC = binding.btnMpc
+
 
         // initialise text views
         tvGreeting = binding.tvGreeting
+        tvScoreGK = binding.tvScoreGk
+        tvScoreCS = binding.tvScoreCs
+        tvScoreSN = binding.tvScoreSn
+        tvScoreMPC = binding.tvScoreMpc
 
         // initialise firebase auth
         auth = FirebaseAuth.getInstance()
@@ -76,5 +93,33 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        // General Knowledge button click
+        btnGK.setOnClickListener {
+            val intent = Intent(this, QuizActivity::class.java)
+            intent.putExtra("categoryName", "General Knowledge")
+            startActivity(intent)
+        }
+
+
+        // Computer Science button click
+        btnCS.setOnClickListener {
+            val intent = Intent(this, QuizActivity::class.java)
+            intent.putExtra("categoryName", "Computer Science")
+            startActivity(intent)
+        }
+
+        // Science and Nature button click
+        btnSN.setOnClickListener {
+            val intent = Intent(this, QuizActivity::class.java)
+            intent.putExtra("categoryName", "Science and Nature")
+            startActivity(intent)
+        }
+
+        // Movies and Pop Culture button click
+        btnMPC.setOnClickListener {
+            val intent = Intent(this, QuizActivity::class.java)
+            intent.putExtra("categoryName", "Movies and Pop Culture")
+            startActivity(intent)
+        }
     }
 }

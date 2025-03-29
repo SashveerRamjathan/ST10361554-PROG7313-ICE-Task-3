@@ -3,6 +3,7 @@ package com.st10361554.quizapp
 import Category
 import QuestionAdapter
 import Quiz
+import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.LinearLayout
@@ -97,9 +98,10 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private fun finishQuiz() {
-//        val intent = Intent(this, ResultActivity::class.java)
-//        intent.putExtra("finalScore", score)
-//        startActivity(intent)
-//        finish()
+        val intent = Intent(this, ResultActivity::class.java)
+        intent.putExtra("finalScore", score)
+        intent.putExtra("categoryName", currentCategory.name)
+        startActivity(intent)
+        finish()
     }
 }

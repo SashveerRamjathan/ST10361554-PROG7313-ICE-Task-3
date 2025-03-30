@@ -74,7 +74,7 @@ class QuizActivity : AppCompatActivity() {
 
             override fun onTick(millisUntilFinished: Long) {
                 timeLeft = (millisUntilFinished / 1000).toInt()
-                tvTimer.text = "Time: $timeLeft sec"
+                tvTimer.text = "Time Left: $timeLeft sec"
             }
 
             override fun onFinish() {

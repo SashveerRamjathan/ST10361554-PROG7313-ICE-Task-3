@@ -12,12 +12,15 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.st10361554.quizapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var auth: FirebaseAuth
+    private lateinit var firestore: FirebaseFirestore
 
     // Buttons
     private lateinit var btnSignOut: Button
@@ -63,6 +66,9 @@ class MainActivity : AppCompatActivity() {
 
         // initialise firebase auth
         auth = FirebaseAuth.getInstance()
+
+        // initialise firebase firestore
+        firestore = FirebaseFirestore.getInstance()
 
         // get current user
         val user: FirebaseUser? = auth.currentUser
@@ -127,5 +133,54 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("categoryName", "Movies and Pop Culture")
             startActivity(intent)
         }
+
+        // get the current user id
+        val userId = auth.currentUser?.uid
+
+        // get user scores for each category from firestore and update text views
+        getMostRecentUserScore(userId.toString(), "General Knowledge") {score ->
+            tvScoreGK.text = "Last Score: $score"
+        }
+
+        getMostRecentUserScore(userId.toString(), "Computer Science") {score ->
+            tvScoreCS.text = "Last Score: $score"
+        }
+
+        getMostRecentUserScore(userId.toString(), "Science and Nature") {score ->
+            tvScoreSN.text = "Last Score: $score"
+        }
+
+        getMostRecentUserScore(userId.toString(), "Movies and Pop Culture") {score ->
+            tvScoreMPC.text = "Last Score: $score"
+        }
+
     }
+
+    private fun getMostRecentUserScore(userId: String, categoryName: String, callback: (Int) -> Unit)
+    {
+
+        firestore.collection("quiz-user-scores")
+            .whereEqualTo("userId", userId)
+            .whereEqualTo("categoryName", categoryName)
+            .orderBy("timestamp", Query.Direction.DESCENDING)  // Ensure you get the most recent score
+            .limit(1)
+            .get()
+
+            .addOnSuccessListener { querySnapshot ->
+                if (querySnapshot != null && !querySnapshot.isEmpty)
+                {
+                    // Assuming the score is stored in a field named "score"
+                    val score = querySnapshot.documents[0].getLong("score")?.toInt() ?: 0
+                    callback(score)
+
+                }
+                else
+                {
+                    Log.d("MainActivity", "No score found for category $categoryName")
+                    // No score found
+                    callback(0)
+                }
+            }
+    }
+
 }

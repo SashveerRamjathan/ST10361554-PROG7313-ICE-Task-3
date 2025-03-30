@@ -17,9 +17,10 @@
         android:text="Time: 30 sec"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:textColor="@color/fire_engine_red"
+        android:textColor="@color/orange_peel"
         android:layout_gravity="center_horizontal"
-        android:paddingBottom="10dp"/>
+        android:paddingBottom="10dp"
+        android:layout_marginBottom="5dp"/>
 
     <SeekBar
         android:id="@+id/sb_progress"
@@ -31,7 +32,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewQuestions"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingTop="10dp"/>
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:layout_margin="10dp"/>
 
 </LinearLayout>

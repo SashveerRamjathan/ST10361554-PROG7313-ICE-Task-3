@@ -41,6 +41,12 @@ class QuizActivity : AppCompatActivity() {
         binding = ActivityQuizBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
         recyclerView = binding.recyclerViewQuestions
         seekbar = binding.sbProgress
         tvTimer = binding.tvTimer
@@ -59,11 +65,13 @@ class QuizActivity : AppCompatActivity() {
         recyclerView.adapter = questionAdapter
 
         seekbar.max = currentCategory.questions.size
+        seekbar.isEnabled = false; // Disable user interaction with the SeekBar
         startTimer()
     }
 
     private fun startTimer() {
         timer = object : CountDownTimer(30000, 1000) {
+
             override fun onTick(millisUntilFinished: Long) {
                 timeLeft = (millisUntilFinished / 1000).toInt()
                 tvTimer.text = "Time: $timeLeft sec"
@@ -72,10 +80,12 @@ class QuizActivity : AppCompatActivity() {
             override fun onFinish() {
                 checkAnswer(-1) // User didn't answer in time
             }
+
         }.start()
     }
 
     private fun checkAnswer(selectedAnswer: Int) {
+
         timer.cancel() // Stop timer for the current question
 
         val correctAnswer = currentCategory.questions[currentQuestionIndex].correctAnswerIndex
